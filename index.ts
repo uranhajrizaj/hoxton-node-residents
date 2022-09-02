@@ -1,23 +1,18 @@
-import express from 'express'
+import express from "express";
+import { houses, residents } from "./data";
 
-const app=express()
+const app = express();
 
-const port=4500
+const port = 4500;
 
-const houses=[
-    {
-    id:1,
-    adress:"",
-    type:""
+app.get("/houses", (req, res) => {
+  res.send(houses);
+});
 
-}]
+app.get("/residents", (req, res) => {
+  res.send(residents);
+});
 
-
-app.get("/",(req,res)=>{
-    res.send(houses)
-})
-
-app.listen(port,()=>{
-    console.log(`Server is running in: http://localhost:${port}/`)
-
-})
+app.listen(port, () => {
+  console.log(`Server is running in: http://localhost:${port}/houses`);
+});
