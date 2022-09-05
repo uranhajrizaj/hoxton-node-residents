@@ -3,31 +3,37 @@ export const houses = [
     id: 1,
     adress: "Limes Poplars ",
     type: "house",
+    capacity: 3
   },
   {
     id: 2,
     adress: "Leonard Cloisters",
     type: "flat",
+    capacity: 4
   },
   {
     id: 3,
     adress: "Lockwood Meadows",
     type: "house",
+    capacity: 3
   },
   {
     id: 4,
     adress: "Bridge Woods",
     type: "flat",
+    capacity: 4
   },
   {
     id: 5,
     adress: "Brooke Elms",
     type: "farm",
+    capacity: 4
   },
   {
     id: 6,
     adress: "Beatty Leys",
     type: "farm",
+    capacity: 3
   },
 ];
 
