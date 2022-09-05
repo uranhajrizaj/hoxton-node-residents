@@ -58,10 +58,10 @@ app.patch("/residents/:id",(req,res)=>{
     if(typeof req.body.age) match.age=req.body.age
     if(typeof req.body.gender) match.gender=req.body.gender
     if(typeof req.body.houseID){
-      const findHouse=houses.find(house=>house.id===req.body.houseID)
-      const houseResidents=residents.filter(resident=>resident.houseID===req.body.houseID).length
+      const findHouse=houses.find(house=>house.id===Number(req.body.houseID))
+      const houseResidents=residents.filter(resident=>resident.houseID===Number(req.body.houseID)).length
      if(findHouse && houseResidents < findHouse.capacity) {
-      match.houseID=req.body.house.houseID 
+      match.houseID=Number(req.body.house.houseID )
       res.send(match)
      }
      else res.status(400).send({error:"House if full"})
@@ -139,7 +139,8 @@ app.post("/residents",(req,res)=>{
   if(errors.length===0 ){
     const findHouse=houses.find(house=>house.id===Number(req.body.houseID))
     console.log(findHouse)
-    const houseResidents=residents.filter(resident=>resident.houseID===req.body.houseID).length
+    const houseResidents=residents.filter(resident=>resident.houseID===Number(req.body.houseID)).length
+    console.log(houseResidents)
    if(findHouse && houseResidents < findHouse.capacity) {
     residents.push(newResident)
     res.send(newResident)
