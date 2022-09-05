@@ -133,11 +133,12 @@ app.post("/residents",(req,res)=>{
     name:req.body.name,
     gender:req.body.gender,
     age:req.body.age,
-    houseID:req.body.houseID
+    houseID:Number(req.body.houseID)
   }
  
   if(errors.length===0 ){
-    const findHouse=houses.find(house=>house.id===req.body.houseID)
+    const findHouse=houses.find(house=>house.id===Number(req.body.houseID))
+    console.log(findHouse)
     const houseResidents=residents.filter(resident=>resident.houseID===req.body.houseID).length
    if(findHouse && houseResidents < findHouse.capacity) {
     residents.push(newResident)
